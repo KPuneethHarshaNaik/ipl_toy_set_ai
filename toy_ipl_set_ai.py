@@ -47,3 +47,9 @@ plt.figure(figsize=(12,8))
 tree.plot_tree(model, feature_names=["balls","sr","past_highest"], filled=True, rounded=True)
 plt.show()
 
+# predict for all players in dataset
+df["predicted_score"] = model.predict(X)
+
+# print name + predicted score
+for i, row in df.iterrows():
+    print(f"{row['player']} → Predicted Highest Score: {row['predicted_score']:.1f}")
